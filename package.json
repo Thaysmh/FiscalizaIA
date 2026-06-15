@@ -1,0 +1,24 @@
+{
+  "name": "FiscalizaIA",
+  "version": "1.0.0",
+  "description": "Plataforma de classificação inteligente de contratos públicos para apoio à fiscalização profissional de engenharia",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Thaysmh/FiscalizaIA.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Thaysmh/FiscalizaIA/issues"
+  },
+  "homepage": "https://github.com/Thaysmh/FiscalizaIA#readme",
+  "dependencies": {
+    "express": "^5.2.1"
+  }
+}
