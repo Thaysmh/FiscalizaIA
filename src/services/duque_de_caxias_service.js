@@ -1,12 +1,12 @@
 import axios from "axios";
   
-export default async function DuqueDeCaxiasService(data){
+export async function DuqueDeCaxiasService(year){
   try {
     const response = await axios.post(
       "https://transparencia.duquedecaxias.rj.gov.br/sincronia/apidados.rule?sys=LAI",
       {
-        api: "contratos_base_local",
-        ano: data.year
+        api: "contratos_cadastro_transparencia_m2",
+        ano: year
       },
       {
         headers: {

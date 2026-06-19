@@ -1,6 +1,5 @@
 import express from "express";
-import { get_duque_de_caxias } from "./src/controllers/prefeituras/duque_de_caxias_controller";
-
+import { get_duque_de_caxias } from "./src/controllers/prefeituras/duque_de_caxias_controller.js";
 const app = express();
 
 app.get("/", (req, res) => {

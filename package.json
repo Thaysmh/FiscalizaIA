@@ -2,12 +2,12 @@
   "name": "FiscalizaIA",
   "version": "1.0.0",
   "description": "Plataforma de classificação inteligente de contratos públicos para apoio à fiscalização profissional de engenharia",
-  "main": "index.js",
+  "main": "app.js",
   "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "nodemon index.js",
-    "start": "node index.js"
+    "dev": "nodemon -L app.js",
+    "start": "node app.js"
   },
   "repository": {
     "type": "git",
