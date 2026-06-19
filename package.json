@@ -22,7 +22,8 @@
   "homepage": "https://github.com/Thaysmh/FiscalizaIA#readme",
   "dependencies": {
     "axios": "^1.18.0",
-    "express": "^5.2.1"
+    "express": "^5.2.1",
+    "redis": "^6.0.0"
   },
   "devDependencies": {
     "nodemon": "^3.1.14"
