@@ -15,8 +15,10 @@ export async function connectRedis() {
   try {
     await client.connect();
     console.log("Conectado ao Redis com sucesso!");
+    return true;
   } catch (error) {
     console.error("Erro ao conectar ao Redis:", error);
+    return false;
   }
 }
 
