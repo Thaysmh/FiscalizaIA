@@ -1,34 +1,18 @@
 import pandas as pd
 import joblib
 
-from sklearn.model_selection import train_test_split
+from sklearn.model_selection import StratifiedKFold, cross_val_score
 from sklearn.pipeline import Pipeline
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.linear_model import LogisticRegression
 from sklearn.metrics import classification_report
 
-# Carrega dataset rotulado
 df = pd.read_csv("contratos-classificados.csv")
 
-# Converte categorias
-#df["Categoria"] = df["Categoria"].map({
-#    "NAO_CREA": 0,
-#    "CREA": 1
-#})
-
-# Remove linhas sem categoria
 df = df.dropna(subset=["Categoria"])
 
 X = df["Objeto"]
 y = df["Categoria"]
-
-X_train, X_test, y_train, y_test = train_test_split(
-    X,
-    y,
-    test_size=0.2,
-    random_state=42,
-    stratify=y
-)
 
 modelo = Pipeline([
     (
@@ -46,11 +30,16 @@ modelo = Pipeline([
     )
 ])
 
-modelo.fit(X_train, y_train)
+# 🔁 Cross Validation
+cv = StratifiedKFold(n_splits=5, shuffle=True, random_state=42)
 
-pred = modelo.predict(X_test)
+scores = cross_val_score(modelo, X, y, cv=cv, scoring="f1_weighted")
 
-print(classification_report(y_test, pred))
+print("Scores por fold:", scores)
+print("Média F1:", scores.mean())
+
+# 🔥 Treina modelo final em TODO o dataset
+modelo.fit(X, y)
 
 joblib.dump(modelo, "models/modelo_crea.pkl")
 
